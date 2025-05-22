@@ -1,27 +1,28 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from '@/components/ThemeProvider'
+import './globals.css'
+import '../styles/fonts.css'  // Add this line
+import { Inter } from 'next/font/google'
 import { Header } from '@/components/Header'
+import { Providers } from './providers'
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',  // Add this
+})
 
 export const metadata = {
-  title: "Ryan Yin",
-  description: "I shape systems and strategy to unlock insight for the world ahead.",
-};
+  title: 'Ryan Yin',
+  description: 'Portfolio website',
+}
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <body className={`${inter.variable} font-sans bg-white dark:bg-midnight`}>
+        <Providers>
           <Header />
           {children}
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
-  );
+  )
 }
