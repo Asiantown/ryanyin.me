@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 0 0 0;
+  }
+
+  .dark {
+    --background: 10 10 10;
+    --foreground: 255 255 255;
+  }
+}
+
+body {
+  @apply bg-white text-black transition-colors dark:bg-gray-950 dark:text-white;
+}
